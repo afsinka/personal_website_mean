@@ -10,6 +10,9 @@ var core_1 = require("@angular/core");
 var ContactCmp = /** @class */ (function () {
     function ContactCmp() {
     }
+    ContactCmp.prototype.ngAfterViewInit = function () {
+        twttr.widgets.load();
+    };
     ContactCmp = __decorate([
         core_1.Component({
             selector: "contact-cmp",
@@ -20,3 +23,5 @@ var ContactCmp = /** @class */ (function () {
     return ContactCmp;
 }());
 exports.ContactCmp = ContactCmp;
+$(document).ready(function () {
+});

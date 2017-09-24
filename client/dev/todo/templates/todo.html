@@ -1,24 +1,26 @@
+
 <div class="todo-container">
-  <form class="todo-form"
-        (submit)="add(todoForm.todoMessage)">
+  <h1 class="todo-title">{{title}}</h1>
+  <div class="headline">
+    <div id="myPic"> <img src="images/afsinka.jpg" width="170" height="170"> <span class="text-content"></span> </div>
+    <p> I'm <b>Afsin Kapusuzoglu</b>, a software engineer, an open source enthusiast and sharing code for various problems in my
+      <a href="https://afsinka.wordpress.com/" target="_blank">blog</a>.
+    </p>
+  </div>
 
-    <h1 class="todo-title">{{title}}</h1>
 
-    <input type="text"
-           name="todoMessage"
-           [(ngModel)]="todoForm.todoMessage"
-           [class.todo-error]="!todoForm.todoMessage.length"
-           placeholder="What do you have todo?"
-           autofocus />
+  <!--MOVE IT TO CONTACT PAGE-->
+  <form class="todo-form" (submit)="add(todoForm.todoMessage)">
 
-    <button type="submit"
-            [disabled]="!todoForm.todoMessage.length">+</button>
+<!--    <h1 class="todo-title">{{title}}</h1>-->
+
+    <input type="text" name="todoMessage" [(ngModel)]="todoForm.todoMessage" [class.todo-error]="!todoForm.todoMessage.length" placeholder="What do you have todo?" autofocus />
+
+    <button type="submit" [disabled]="!todoForm.todoMessage.length">+</button>
   </form>
 
   <div class="todo-list">
-    <div *ngFor="let todo of todos;"
-         class="todo-item"
-         (click)="remove(todo._id);">
+    <div *ngFor="let todo of todos;" class="todo-item" (click)="remove(todo._id);">
       <p>{{todo.todoMessage}}</p>
     </div>
   </div>

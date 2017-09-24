@@ -24,7 +24,7 @@ type Todo = {
   styleUrls: ["todo/styles/todo.css"]
 })
 export class TodoCmp implements OnInit {
-  title: string = "ng2do";
+  title: string = "hello!";
   todos: Todo[] = [];
   todoForm: Todo;
 
