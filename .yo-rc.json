@@ -1,0 +1,18 @@
+{
+  "generator-ng-fullstack": {
+    "appName": "afsin_mean",
+    "username": "afsinka",
+    "userEmail": "afsinka@afsinka.com",
+    "stack": "fullstack",
+    "repoHostUrl": "github.com",
+    "userNameSpace": "afsinka",
+    "client": "ng2",
+    "stylePreprocessor": "none",
+    "server": "node",
+    "nodeWebFrameworkServer": "express",
+    "transpilerServer": "typescript",
+    "secure": false,
+    "testsSeparated": true,
+    "differentStaticServer": true
+  }
+}
