@@ -19,6 +19,8 @@ var about_cmp_1 = require("./about/components/about-cmp");
 var about_route_1 = require("./about/components/about-route");
 var contact_cmp_1 = require("./contact/components/contact-cmp");
 var contact_route_1 = require("./contact/components/contact-route");
+var notfound_cmp_1 = require("./notfound/components/notfound-cmp");
+var notfound_route_1 = require("./notfound/components/notfound-route");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -31,6 +33,7 @@ var AppModule = /** @class */ (function () {
                 todo_route_1.todoRouting,
                 about_route_1.aboutRouting,
                 contact_route_1.contactRouting,
+                notfound_route_1.notfoundRouting,
             ],
             declarations: [
                 app_1.App,
@@ -38,6 +41,7 @@ var AppModule = /** @class */ (function () {
                 navbar_cmp_1.NavbarCmp,
                 about_cmp_1.AboutCmp,
                 contact_cmp_1.ContactCmp,
+                notfound_cmp_1.NotFoundCmp,
             ],
             providers: [
                 todo_service_1.TodoService,

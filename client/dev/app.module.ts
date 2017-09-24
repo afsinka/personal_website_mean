@@ -11,6 +11,8 @@ import { AboutCmp} from "./about/components/about-cmp";
 import { aboutRouting} from "./about/components/about-route";
 import { ContactCmp} from "./contact/components/contact-cmp";
 import { contactRouting} from "./contact/components/contact-route";
+import { NotFoundCmp} from "./notfound/components/notfound-cmp";
+import { notfoundRouting} from "./notfound/components/notfound-route";
 
 @NgModule({
     imports: [
@@ -20,6 +22,7 @@ import { contactRouting} from "./contact/components/contact-route";
       todoRouting,
       aboutRouting,
       contactRouting,
+      notfoundRouting,
     ],
     declarations: [
       App,
@@ -27,6 +30,7 @@ import { contactRouting} from "./contact/components/contact-route";
       NavbarCmp,
       AboutCmp,
       ContactCmp,
+      NotFoundCmp,
     ],
     providers: [
       TodoService,
