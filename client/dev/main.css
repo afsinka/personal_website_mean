@@ -9,3 +9,8 @@
   font-size:30px;
   color: steelblue;
 }
+
+.contact_table td {
+  border: 0px solid #ddd;
+  padding: 8px;
+}
