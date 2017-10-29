@@ -9,6 +9,7 @@ import {
 
 const notfoundRoutes:Routes = [
 	{path: '404', component: NotFoundCmp},
+	{path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', redirectTo: '/404'}
 ]
 
