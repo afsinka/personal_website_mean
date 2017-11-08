@@ -11,6 +11,7 @@ import { AboutCmp} from "./about/components/about-cmp";
 import { aboutRouting} from "./about/components/about-route";
 import { ContactCmp} from "./contact/components/contact-cmp";
 import { contactRouting} from "./contact/components/contact-route";
+import { ContactService }   from "./contact/services/contact-service";
 import { NotFoundCmp} from "./notfound/components/notfound-cmp";
 import { notfoundRouting} from "./notfound/components/notfound-route";
 
@@ -34,6 +35,7 @@ import { notfoundRouting} from "./notfound/components/notfound-route";
     ],
     providers: [
       TodoService,
+      ContactService,
     ],
     bootstrap: [
       App,

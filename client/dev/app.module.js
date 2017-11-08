@@ -19,6 +19,7 @@ var about_cmp_1 = require("./about/components/about-cmp");
 var about_route_1 = require("./about/components/about-route");
 var contact_cmp_1 = require("./contact/components/contact-cmp");
 var contact_route_1 = require("./contact/components/contact-route");
+var contact_service_1 = require("./contact/services/contact-service");
 var notfound_cmp_1 = require("./notfound/components/notfound-cmp");
 var notfound_route_1 = require("./notfound/components/notfound-route");
 var AppModule = /** @class */ (function () {
@@ -45,6 +46,7 @@ var AppModule = /** @class */ (function () {
             ],
             providers: [
                 todo_service_1.TodoService,
+                contact_service_1.ContactService,
             ],
             bootstrap: [
                 app_1.App,
