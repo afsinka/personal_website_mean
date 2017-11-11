@@ -54,20 +54,27 @@ export class ContactCmp implements AfterViewInit {
   }
 
   onSubmit() {
-    var resp = this._contactService
-      .saveMessage(this.message, this.verifyMessage)
-      .subscribe(data => {
-        $('.btn-submit').attr('disabled', true);
-        $('#myModal').modal();
-      },
-      err => {
-        console.error(err);
-        var response = JSON.parse(err['_body']);
-        if (response.responseCode == "1") {
-          $('#myModal2').modal();
+
+    if (!this.message.trim()) {
+      $('#myModal3').modal();
+    } else if (!this.verifyMessage) {
+      $('#myModal2').modal();
+    } else {
+      var resp = this._contactService
+        .saveMessage(this.message, this.verifyMessage)
+        .subscribe(data => {
+          $('.btn-submit').attr('disabled', true);
+          $('#myModal').modal();
+        },
+        err => {
+          console.error(err);
+          var response = JSON.parse(err['_body']);
+          if (response.responseCode == "1") {
+            $('#myModal2').modal();
+          }
         }
-      }
-      );
+        );
+    }
   }
 
   @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;

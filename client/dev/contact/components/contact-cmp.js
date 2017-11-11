@@ -36,18 +36,26 @@ var ContactCmp = /** @class */ (function () {
         }
     };
     ContactCmp.prototype.onSubmit = function () {
-        var resp = this._contactService
-            .saveMessage(this.message, this.verifyMessage)
-            .subscribe(function (data) {
-            $('.btn-submit').attr('disabled', true);
-            $('#myModal').modal();
-        }, function (err) {
-            console.error(err);
-            var response = JSON.parse(err['_body']);
-            if (response.responseCode == "1") {
-                $('#myModal2').modal();
-            }
-        });
+        if (!this.message.trim()) {
+            $('#myModal3').modal();
+        }
+        else if (!this.verifyMessage) {
+            $('#myModal2').modal();
+        }
+        else {
+            var resp = this._contactService
+                .saveMessage(this.message, this.verifyMessage)
+                .subscribe(function (data) {
+                $('.btn-submit').attr('disabled', true);
+                $('#myModal').modal();
+            }, function (err) {
+                console.error(err);
+                var response = JSON.parse(err['_body']);
+                if (response.responseCode == "1") {
+                    $('#myModal2').modal();
+                }
+            });
+        }
     };
     ContactCmp.prototype.handleCorrectCaptcha = function ($event) {
         this.verifyMessage = $event;
