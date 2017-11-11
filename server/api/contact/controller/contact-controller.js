@@ -4,6 +4,14 @@ var contact_dao_1 = require("../dao/contact-dao");
 var ContactController = /** @class */ (function () {
     function ContactController() {
     }
+    ContactController.verify = function (req, res) {
+        console.log(req.body);
+        // let _contact = req.body;
+        // ContactDAO
+        //   ["verify"](_contact)
+        //   .then(contact => res.status(201).json(contact))
+        //   .catch(error => res.status(400).json(error));
+    };
     ContactController.getAll = function (req, res) {
         contact_dao_1.default["getAll"]()
             .then(function (contacts) { return res.status(200).json(contacts); })

@@ -23,15 +23,6 @@ var ContactCmp = /** @class */ (function () {
         twttr.widgets.load();
     };
     ContactCmp.prototype.ngOnInit = function () {
-        this._getAll();
-    };
-    ContactCmp.prototype._getAll = function () {
-        var _this = this;
-        this._contactService
-            .getAll()
-            .subscribe(function (contacts) {
-            _this.contacts = contacts;
-        });
     };
     ContactCmp.prototype.count = function (msg) {
         if (this.maxlength >= msg.length) {
@@ -46,10 +37,10 @@ var ContactCmp = /** @class */ (function () {
         console.log(this.message);
         $('.btn-submit').attr('disabled', true);
         $('#myModal').modal();
-        this._contactService
-            .getAll()
-            .subscribe(function (contacts) {
-            _this.contacts = contacts;
+        var resp = this._contactService
+            .verify(this.message)
+            .subscribe(function (m) {
+            _this.contacts.push(m);
         });
     };
     ContactCmp = __decorate([

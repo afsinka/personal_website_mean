@@ -32,18 +32,12 @@ export class ContactCmp implements AfterViewInit {
   }
 
   ngOnInit() {
-    this._getAll();
+
   }
 
   contacts: string[] = [];
 
-  private _getAll(): void {
-    this._contactService
-      .getAll()
-      .subscribe((contacts) => {
-        this.contacts = contacts;
-      });
-  }
+
 
   maxlength = 5000;
   characterleft = this.maxlength;
@@ -61,11 +55,13 @@ export class ContactCmp implements AfterViewInit {
     console.log(this.message);
     $('.btn-submit').attr('disabled', true);
     $('#myModal').modal();
-    this._contactService
-      .getAll()
-      .subscribe((contacts) => {
-        this.contacts = contacts;
+
+    var resp = this._contactService
+      .verify(this.message)
+      .subscribe((m) => {
+        this.contacts.push(m);
       });
+
   }
 }
 

@@ -3,6 +3,12 @@ import * as Promise from "bluebird";
 import * as _ from "lodash";
 import contactSchema from "../model/contact-model";
 
+contactSchema.static("verify", (contact:Object):Promise<any> => {
+    return new Promise((resolve:Function, reject:Function) => {
+      console.log(contact);
+    });
+});
+
 contactSchema.static("getAll", ():Promise<any> => {
     return new Promise((resolve:Function, reject:Function) => {
         let _query = {};

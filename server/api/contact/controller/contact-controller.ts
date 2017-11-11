@@ -2,6 +2,16 @@ import * as express from "express";
 import ContactDAO from "../dao/contact-dao";
 
 export class ContactController {
+
+  static verify(req: express.Request, res: express.Response): void {
+      console.log(req.body);
+      // let _contact = req.body;
+      // ContactDAO
+      //   ["verify"](_contact)
+      //   .then(contact => res.status(201).json(contact))
+      //   .catch(error => res.status(400).json(error));
+  }
+
   static getAll(req: express.Request, res: express.Response): void {
       ContactDAO
         ["getAll"]()

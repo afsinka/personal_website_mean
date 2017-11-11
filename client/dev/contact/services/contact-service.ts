@@ -22,6 +22,20 @@ export class ContactService {
 
   }
 
+  verify(message: string): Observable<any> {
+    console.log("service: "+message);
+    let _messageStringified = JSON.stringify({message:message});
+    console.log("service: "+_messageStringified);
+
+    let headers = new Headers();
+
+    headers.append("Content-Type", "application/json");
+
+    return this._http
+               .post("/api/contacts/verify", _messageStringified, {headers})
+               .map((r) => r.json());
+  }
+
   getAll(): Observable<any> {
     return this._http
                .get(ContactService.ENDPOINT.replace(/:id/, ""))

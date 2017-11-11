@@ -6,12 +6,16 @@ var ContactRoutes = /** @class */ (function () {
     }
     ContactRoutes.init = function (router) {
         router
-            .route("/api/contacts")
-            .get(contact_controller_1.ContactController.getAll)
-            .post(contact_controller_1.ContactController.createContact);
-        router
-            .route("/api/contacts/:id")
-            .delete(contact_controller_1.ContactController.deleteContact);
+            .route("/api/contacts/verify")
+            .post(contact_controller_1.ContactController.verify);
+        // router
+        //   .route("/api/contacts")
+        //   .get(ContactController.getAll)
+        //   .post(ContactController.createContact);
+        //
+        // router
+        //   .route("/api/contacts/:id")
+        //   .delete(ContactController.deleteContact);
     };
     return ContactRoutes;
 }());
