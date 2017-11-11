@@ -10,6 +10,10 @@ export class ContactRoutes {
         .route("/api/contacts/verify")
         .post(ContactController.verify);
 
+        router
+          .route("/api/contacts/saveMessage")
+          .post(ContactController.saveMessage);
+
       // router
       //   .route("/api/contacts")
       //   .get(ContactController.getAll)

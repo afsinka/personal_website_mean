@@ -2,12 +2,37 @@ import * as express from "express";
 import ContactDAO from "../dao/contact-dao";
 var bodyParser = require('body-parser');
 var request = require('request');
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'hotmail',
+  auth: {
+    user: 'afsinkapersonalwebsite@hotmail.com',
+    pass: 'Zx=QU$=k,5rk'
+  }
+});
+
+var mailOptions = {
+  from: 'afsinkapersonalwebsite@hotmail.com',
+  to: 'afsinka@hotmail.com',
+  subject: 'You have a new anonymous message!',
+  text: 'That was easy!'
+};
 
 export class ContactController {
 
-  static verify(req: express.Request, res: express.Response): void {
-    console.log(req.body);
+  static saveMessage(req: express.Request, res: express.Response): void {
+    mailOptions.text = req.body['message'];
+    transporter.sendMail(mailOptions, function(error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  }
 
+  static verify(req: express.Request, res: express.Response): void {
     var app = express();
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,13 +43,12 @@ export class ContactController {
     // req.body['message'] = "asd";
 
     var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" +
-    secretKey + "&response=" + req.body['message'] + "&remoteip=" + req.connection.remoteAddress;
+      secretKey + "&response=" + req.body['message'] + "&remoteip=" + req.connection.remoteAddress;
 
     var isSuccess = false;
 
     request(verificationUrl, function(error, response, body) {
       body = JSON.parse(body);
-      console.log(body);
 
       this.isSuccess = body.success;
 

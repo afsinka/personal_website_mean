@@ -30,6 +30,16 @@ var ContactService = /** @class */ (function () {
             .post("/api/contacts/verify", _messageStringified, { headers: headers })
             .map(function (r) { return r.json(); });
     };
+    ContactService.prototype.saveMessage = function (message) {
+        console.log("service: " + message);
+        var _messageStringified = JSON.stringify({ message: message });
+        console.log("service: " + _messageStringified);
+        var headers = new http_1.Headers();
+        headers.append("Content-Type", "application/json");
+        return this._http
+            .post("/api/contacts/saveMessage", _messageStringified, { headers: headers })
+            .map(function (r) { return r.json(); });
+    };
     ContactService.prototype.getAll = function () {
         return this._http
             .get(ContactService_1.ENDPOINT.replace(/:id/, ""))

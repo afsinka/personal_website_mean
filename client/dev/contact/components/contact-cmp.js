@@ -41,7 +41,10 @@ var ContactCmp = /** @class */ (function () {
                 console.log("Oh thank god, you are not a robot!");
                 $('.btn-submit').attr('disabled', true);
                 $('#myModal').modal();
-                //TODO save message
+                var resp = this._contactService
+                    .saveMessage(this.message)
+                    .subscribe(function (m) {
+                });
             }
         }
         else {

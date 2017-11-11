@@ -4,11 +4,35 @@ var express = require("express");
 var contact_dao_1 = require("../dao/contact-dao");
 var bodyParser = require('body-parser');
 var request = require('request');
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'hotmail',
+    auth: {
+        user: 'afsinkapersonalwebsite@hotmail.com',
+        pass: 'Zx=QU$=k,5rk'
+    }
+});
+var mailOptions = {
+    from: 'afsinkapersonalwebsite@hotmail.com',
+    to: 'afsinka@hotmail.com',
+    subject: 'You have a new anonymous message!',
+    text: 'That was easy!'
+};
 var ContactController = /** @class */ (function () {
     function ContactController() {
     }
+    ContactController.saveMessage = function (req, res) {
+        mailOptions.text = req.body['message'];
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                console.log('Email sent: ' + info.response);
+            }
+        });
+    };
     ContactController.verify = function (req, res) {
-        console.log(req.body);
         var app = express();
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,7 +44,6 @@ var ContactController = /** @class */ (function () {
         var isSuccess = false;
         request(verificationUrl, function (error, response, body) {
             body = JSON.parse(body);
-            console.log(body);
             this.isSuccess = body.success;
             if (body.success !== undefined && !body.success) {
                 return res.status(400).json({ "responseCode": 1, "responseDesc": "Failed captcha verification" });

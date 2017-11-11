@@ -59,11 +59,15 @@ export class ContactCmp implements AfterViewInit {
         console.log("Oh thank god, you are not a robot!");
         $('.btn-submit').attr('disabled', true);
         $('#myModal').modal();
-        //TODO save message
+        var resp = this._contactService
+          .saveMessage(this.message)
+          .subscribe((m) => {
+
+          });
       }
     } else {
-        console.log("Hello Mr.Robot!!!");
-        $('#myModal2').modal();
+      console.log("Hello Mr.Robot!!!");
+      $('#myModal2').modal();
     }
   }
 

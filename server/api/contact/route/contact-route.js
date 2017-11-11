@@ -8,6 +8,9 @@ var ContactRoutes = /** @class */ (function () {
         router
             .route("/api/contacts/verify")
             .post(contact_controller_1.ContactController.verify);
+        router
+            .route("/api/contacts/saveMessage")
+            .post(contact_controller_1.ContactController.saveMessage);
         // router
         //   .route("/api/contacts")
         //   .get(ContactController.getAll)
