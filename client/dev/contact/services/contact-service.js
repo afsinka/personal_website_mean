@@ -20,16 +20,19 @@ var ContactService = /** @class */ (function () {
         this._http = _http;
     }
     ContactService_1 = ContactService;
-    ContactService.prototype.verify = function (message) {
-        var _messageStringified = JSON.stringify({ message: message });
-        var headers = new http_1.Headers();
-        headers.append("Content-Type", "application/json");
-        return this._http
-            .post("/api/contacts/verify", _messageStringified, { headers: headers })
-            .map(function (r) { return r.json(); });
-    };
-    ContactService.prototype.saveMessage = function (message) {
-        var _messageStringified = JSON.stringify({ message: message });
+    // verify(message: string): Observable<any> {
+    //   let _messageStringified = JSON.stringify({message:message});
+    //
+    //   let headers = new Headers();
+    //
+    //   headers.append("Content-Type", "application/json");
+    //
+    //   return this._http
+    //              .post("/api/contacts/verify", _messageStringified, {headers})
+    //              .map((r) => r.json());
+    // }
+    ContactService.prototype.saveMessage = function (message, verifyMessage) {
+        var _messageStringified = JSON.stringify({ message: message, verifyMessage: verifyMessage });
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
         return this._http

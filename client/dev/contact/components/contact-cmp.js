@@ -20,6 +20,7 @@ var ContactCmp = /** @class */ (function () {
         this.maxlength = 5000;
         this.characterleft = this.maxlength;
         this.message = '';
+        this.verifyMessage = '';
     }
     ContactCmp.prototype.ngAfterViewInit = function () {
         twttr.widgets.load();
@@ -35,30 +36,21 @@ var ContactCmp = /** @class */ (function () {
         }
     };
     ContactCmp.prototype.onSubmit = function () {
-        if (this.contacts.length > 0) {
-            var responseCode = this.contacts[0]['responseCode'];
-            if (responseCode == "0") {
-                console.log("Oh thank god, you are not a robot!");
-                $('.btn-submit').attr('disabled', true);
-                $('#myModal').modal();
-                var resp = this._contactService
-                    .saveMessage(this.message)
-                    .subscribe(function (m) {
-                });
+        var resp = this._contactService
+            .saveMessage(this.message, this.verifyMessage)
+            .subscribe(function (data) {
+            $('.btn-submit').attr('disabled', true);
+            $('#myModal').modal();
+        }, function (err) {
+            console.error(err);
+            var response = JSON.parse(err['_body']);
+            if (response.responseCode == "1") {
+                $('#myModal2').modal();
             }
-        }
-        else {
-            console.log("Hello Mr.Robot!!!");
-            $('#myModal2').modal();
-        }
+        });
     };
     ContactCmp.prototype.handleCorrectCaptcha = function ($event) {
-        var _this = this;
-        var resp = this._contactService
-            .verify($event)
-            .subscribe(function (m) {
-            _this.contacts.push(m);
-        });
+        this.verifyMessage = $event;
     };
     __decorate([
         core_2.ViewChild(angular2_recaptcha_1.ReCaptchaComponent),

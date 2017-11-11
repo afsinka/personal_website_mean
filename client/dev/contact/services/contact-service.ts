@@ -22,20 +22,20 @@ export class ContactService {
 
   }
 
-  verify(message: string): Observable<any> {
-    let _messageStringified = JSON.stringify({message:message});
+  // verify(message: string): Observable<any> {
+  //   let _messageStringified = JSON.stringify({message:message});
+  //
+  //   let headers = new Headers();
+  //
+  //   headers.append("Content-Type", "application/json");
+  //
+  //   return this._http
+  //              .post("/api/contacts/verify", _messageStringified, {headers})
+  //              .map((r) => r.json());
+  // }
 
-    let headers = new Headers();
-
-    headers.append("Content-Type", "application/json");
-
-    return this._http
-               .post("/api/contacts/verify", _messageStringified, {headers})
-               .map((r) => r.json());
-  }
-
-  saveMessage(message: string): Observable<any> {
-    let _messageStringified = JSON.stringify({message:message});
+  saveMessage(message: string, verifyMessage: string): Observable<any> {
+    let _messageStringified = JSON.stringify({message:message, verifyMessage : verifyMessage});
 
     let headers = new Headers();
 

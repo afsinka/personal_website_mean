@@ -43,6 +43,7 @@ export class ContactCmp implements AfterViewInit {
   maxlength = 5000;
   characterleft = this.maxlength;
   message = '';
+  verifyMessage = '';
 
   count(msg) {
     if (this.maxlength >= msg.length) {
@@ -53,32 +54,26 @@ export class ContactCmp implements AfterViewInit {
   }
 
   onSubmit() {
-    if (this.contacts.length > 0) {
-      let responseCode = this.contacts[0]['responseCode'];
-      if (responseCode == "0") {
-        console.log("Oh thank god, you are not a robot!");
+    var resp = this._contactService
+      .saveMessage(this.message, this.verifyMessage)
+      .subscribe(data => {
         $('.btn-submit').attr('disabled', true);
         $('#myModal').modal();
-        var resp = this._contactService
-          .saveMessage(this.message)
-          .subscribe((m) => {
-
-          });
+      },
+      err => {
+        console.error(err);
+        var response = JSON.parse(err['_body']);
+        if (response.responseCode == "1") {
+          $('#myModal2').modal();
+        }
       }
-    } else {
-      console.log("Hello Mr.Robot!!!");
-      $('#myModal2').modal();
-    }
+      );
   }
 
   @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
 
   handleCorrectCaptcha($event) {
-    var resp = this._contactService
-      .verify($event)
-      .subscribe((m) => {
-        this.contacts.push(m);
-      });
+    this.verifyMessage = $event;
   }
 }
 
