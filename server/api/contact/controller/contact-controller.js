@@ -1,11 +1,32 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var express = require("express");
 var contact_dao_1 = require("../dao/contact-dao");
+var bodyParser = require('body-parser');
+var request = require('request');
 var ContactController = /** @class */ (function () {
     function ContactController() {
     }
     ContactController.verify = function (req, res) {
         console.log(req.body);
+        var app = express();
+        app.use(bodyParser.json());
+        app.use(bodyParser.urlencoded({ extended: false }));
+        var secretKey = "6LciXjYUAAAAALtyGTHdJOCQcbGQdqekGr9JBp_T";
+        //TODO deleteContact
+        // req.body['message'] = "asd";
+        var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" +
+            secretKey + "&response=" + req.body['message'] + "&remoteip=" + req.connection.remoteAddress;
+        var isSuccess = false;
+        request(verificationUrl, function (error, response, body) {
+            body = JSON.parse(body);
+            console.log(body);
+            this.isSuccess = body.success;
+            if (body.success !== undefined && !body.success) {
+                return res.status(400).json({ "responseCode": 1, "responseDesc": "Failed captcha verification" });
+            }
+            res.status(200).json({ "responseCode": 0, "responseDesc": "Success" });
+        });
         // let _contact = req.body;
         // ContactDAO
         //   ["verify"](_contact)

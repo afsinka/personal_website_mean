@@ -23,6 +23,7 @@
     <br/>
     <span> chars left : {{ characterleft }}</span>
     <button style="float:right;margin-right:10%;" type="submit" class="btn btn-success btn-submit">Send</button>
+    <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LciXjYUAAAAAI7KLBHYcoVMomyxQi4eRbkHZZy-"></re-captcha>
   </form>
 
   <!-- Modal -->

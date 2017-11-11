@@ -18,8 +18,16 @@ System.config({
     '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
     '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
     '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+		'angular2-recaptcha': 'node_modules/angular2-recaptcha',
 
     // other libraries
     'rxjs':                       'npm:rxjs'
-  }
+  },
+	packages: {
+        app: {
+            format: 'register',
+            defaultExtension: 'js'
+        },
+        'angular2-recaptcha': {defaultExtension: 'js', main:'index'}
+    }
 });

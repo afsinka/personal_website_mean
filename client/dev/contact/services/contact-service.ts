@@ -36,6 +36,7 @@ export class ContactService {
                .map((r) => r.json());
   }
 
+
   getAll(): Observable<any> {
     return this._http
                .get(ContactService.ENDPOINT.replace(/:id/, ""))

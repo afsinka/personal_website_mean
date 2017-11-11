@@ -14,6 +14,9 @@ import {
   ContactService
 } from "../services/contact-service";
 
+import { ViewChild } from '@angular/core';
+import { ReCaptchaComponent } from 'angular2-recaptcha';
+
 declare var $: any;
 declare var twttr;
 
@@ -37,8 +40,6 @@ export class ContactCmp implements AfterViewInit {
 
   contacts: string[] = [];
 
-
-
   maxlength = 5000;
   characterleft = this.maxlength;
   message = '';
@@ -52,16 +53,25 @@ export class ContactCmp implements AfterViewInit {
   }
 
   onSubmit() {
-    console.log(this.message);
-    $('.btn-submit').attr('disabled', true);
-    $('#myModal').modal();
+    if (this.contacts.length > 0) {
+      let responseCode = this.contacts[0]['responseCode'];
+      if (responseCode == "0") {
+        console.log("YOU ARE NOT ROBOT!!!");
+        $('.btn-submit').attr('disabled', true);
+        $('#myModal').modal();
+        //TODO save message
+      }
+    }
+  }
 
+  @ViewChild(ReCaptchaComponent) captcha: ReCaptchaComponent;
+
+  handleCorrectCaptcha($event) {
     var resp = this._contactService
-      .verify(this.message)
+      .verify($event)
       .subscribe((m) => {
         this.contacts.push(m);
       });
-
   }
 }
 

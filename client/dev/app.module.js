@@ -22,6 +22,7 @@ var contact_route_1 = require("./contact/components/contact-route");
 var contact_service_1 = require("./contact/services/contact-service");
 var notfound_cmp_1 = require("./notfound/components/notfound-cmp");
 var notfound_route_1 = require("./notfound/components/notfound-route");
+var angular2_recaptcha_1 = require("angular2-recaptcha");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -35,6 +36,7 @@ var AppModule = /** @class */ (function () {
                 about_route_1.aboutRouting,
                 contact_route_1.contactRouting,
                 notfound_route_1.notfoundRouting,
+                angular2_recaptcha_1.ReCaptchaModule,
             ],
             declarations: [
                 app_1.App,

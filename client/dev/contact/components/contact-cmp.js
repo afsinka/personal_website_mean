@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var contact_service_1 = require("../services/contact-service");
+var core_2 = require("@angular/core");
+var angular2_recaptcha_1 = require("angular2-recaptcha");
 var ContactCmp = /** @class */ (function () {
     function ContactCmp(_contactService) {
         this._contactService = _contactService;
@@ -33,16 +35,28 @@ var ContactCmp = /** @class */ (function () {
         }
     };
     ContactCmp.prototype.onSubmit = function () {
+        if (this.contacts.length > 0) {
+            var responseCode = this.contacts[0]['responseCode'];
+            if (responseCode == "0") {
+                console.log("YOU ARE NOT ROBOT!!!");
+                $('.btn-submit').attr('disabled', true);
+                $('#myModal').modal();
+                //TODO save message
+            }
+        }
+    };
+    ContactCmp.prototype.handleCorrectCaptcha = function ($event) {
         var _this = this;
-        console.log(this.message);
-        $('.btn-submit').attr('disabled', true);
-        $('#myModal').modal();
         var resp = this._contactService
-            .verify(this.message)
+            .verify($event)
             .subscribe(function (m) {
             _this.contacts.push(m);
         });
     };
+    __decorate([
+        core_2.ViewChild(angular2_recaptcha_1.ReCaptchaComponent),
+        __metadata("design:type", angular2_recaptcha_1.ReCaptchaComponent)
+    ], ContactCmp.prototype, "captcha", void 0);
     ContactCmp = __decorate([
         core_1.Component({
             selector: "contact-cmp",

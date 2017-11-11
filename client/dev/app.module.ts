@@ -14,6 +14,7 @@ import { contactRouting} from "./contact/components/contact-route";
 import { ContactService }   from "./contact/services/contact-service";
 import { NotFoundCmp} from "./notfound/components/notfound-cmp";
 import { notfoundRouting} from "./notfound/components/notfound-route";
+import { ReCaptchaModule } from 'angular2-recaptcha';
 
 @NgModule({
     imports: [
@@ -24,6 +25,7 @@ import { notfoundRouting} from "./notfound/components/notfound-route";
       aboutRouting,
       contactRouting,
       notfoundRouting,
+      ReCaptchaModule,
     ],
     declarations: [
       App,
