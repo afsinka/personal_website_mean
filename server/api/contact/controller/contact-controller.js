@@ -5,16 +5,17 @@ var contact_dao_1 = require("../dao/contact-dao");
 var bodyParser = require('body-parser');
 var request = require('request');
 var nodemailer = require('nodemailer');
+var mailConst = require("../../../constants/mail.json");
 var transporter = nodemailer.createTransport({
     service: 'hotmail',
     auth: {
-        user: 'afsinkapersonalwebsite@hotmail.com',
-        pass: 'Zx=QU$=k,5rk'
+        user: mailConst.user,
+        pass: mailConst.pass
     }
 });
 var mailOptions = {
-    from: 'afsinkapersonalwebsite@hotmail.com',
-    to: 'afsinka@hotmail.com',
+    from: mailConst.from,
+    to: mailConst.to,
     subject: 'You have a new anonymous message!',
     text: 'That was easy!'
 };
@@ -36,7 +37,7 @@ var ContactController = /** @class */ (function () {
         var app = express();
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({ extended: false }));
-        var secretKey = "6LciXjYUAAAAALtyGTHdJOCQcbGQdqekGr9JBp_T";
+        var secretKey = mailConst.secretKey;
         //TODO deleteContact
         // req.body['message'] = "asd";
         var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" +

@@ -4,17 +4,19 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var nodemailer = require('nodemailer');
 
+const mailConst = require("../../../constants/mail.json");
+
 var transporter = nodemailer.createTransport({
   service: 'hotmail',
   auth: {
-    user: 'afsinkapersonalwebsite@hotmail.com',
-    pass: 'Zx=QU$=k,5rk'
+    user: mailConst.user,
+    pass: mailConst.pass
   }
 });
 
 var mailOptions = {
-  from: 'afsinkapersonalwebsite@hotmail.com',
-  to: 'afsinka@hotmail.com',
+  from: mailConst.from,
+  to: mailConst.to,
   subject: 'You have a new anonymous message!',
   text: 'That was easy!'
 };
@@ -37,7 +39,7 @@ export class ContactController {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
 
-    var secretKey = "6LciXjYUAAAAALtyGTHdJOCQcbGQdqekGr9JBp_T";
+    var secretKey = mailConst.secretKey;
 
     //TODO deleteContact
     // req.body['message'] = "asd";
