@@ -5,7 +5,7 @@ import contactSchema from "../model/contact-model";
 
 contactSchema.static("verify", (contact:Object):Promise<any> => {
     return new Promise((resolve:Function, reject:Function) => {
-      console.log(contact);
+      
     });
 });
 

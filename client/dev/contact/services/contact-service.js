@@ -21,9 +21,7 @@ var ContactService = /** @class */ (function () {
     }
     ContactService_1 = ContactService;
     ContactService.prototype.verify = function (message) {
-        console.log("service: " + message);
         var _messageStringified = JSON.stringify({ message: message });
-        console.log("service: " + _messageStringified);
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
         return this._http
@@ -31,9 +29,7 @@ var ContactService = /** @class */ (function () {
             .map(function (r) { return r.json(); });
     };
     ContactService.prototype.saveMessage = function (message) {
-        console.log("service: " + message);
         var _messageStringified = JSON.stringify({ message: message });
-        console.log("service: " + _messageStringified);
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
         return this._http

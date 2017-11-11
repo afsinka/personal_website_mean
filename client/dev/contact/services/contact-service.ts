@@ -23,9 +23,7 @@ export class ContactService {
   }
 
   verify(message: string): Observable<any> {
-    console.log("service: "+message);
     let _messageStringified = JSON.stringify({message:message});
-    console.log("service: "+_messageStringified);
 
     let headers = new Headers();
 
@@ -37,9 +35,7 @@ export class ContactService {
   }
 
   saveMessage(message: string): Observable<any> {
-    console.log("service: "+message);
     let _messageStringified = JSON.stringify({message:message});
-    console.log("service: "+_messageStringified);
 
     let headers = new Headers();
 

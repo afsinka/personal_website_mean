@@ -6,7 +6,6 @@ var _ = require("lodash");
 var contact_model_1 = require("../model/contact-model");
 contact_model_1.default.static("verify", function (contact) {
     return new Promise(function (resolve, reject) {
-        console.log(contact);
     });
 });
 contact_model_1.default.static("getAll", function () {
