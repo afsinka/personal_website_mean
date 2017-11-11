@@ -56,11 +56,14 @@ export class ContactCmp implements AfterViewInit {
     if (this.contacts.length > 0) {
       let responseCode = this.contacts[0]['responseCode'];
       if (responseCode == "0") {
-        console.log("YOU ARE NOT ROBOT!!!");
+        console.log("Oh thank god, you are not a robot!");
         $('.btn-submit').attr('disabled', true);
         $('#myModal').modal();
         //TODO save message
       }
+    } else {
+        console.log("Hello Mr.Robot!!!");
+        $('#myModal2').modal();
     }
   }
 

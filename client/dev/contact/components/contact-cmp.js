@@ -38,11 +38,15 @@ var ContactCmp = /** @class */ (function () {
         if (this.contacts.length > 0) {
             var responseCode = this.contacts[0]['responseCode'];
             if (responseCode == "0") {
-                console.log("YOU ARE NOT ROBOT!!!");
+                console.log("Oh thank god, you are not a robot!");
                 $('.btn-submit').attr('disabled', true);
                 $('#myModal').modal();
                 //TODO save message
             }
+        }
+        else {
+            console.log("Hello Mr.Robot!!!");
+            $('#myModal2').modal();
         }
     };
     ContactCmp.prototype.handleCorrectCaptcha = function ($event) {
