@@ -21,7 +21,6 @@ var TodoCmp = /** @class */ (function () {
         };
     }
     TodoCmp.prototype.ngOnInit = function () {
-        this._getAll();
     };
     TodoCmp.prototype._getAll = function () {
         var _this = this;
