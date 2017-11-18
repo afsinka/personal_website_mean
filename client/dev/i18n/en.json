@@ -1,6 +1,7 @@
 {
-  "HOME": {
-    "TITLE": "Hello Angular 2 with ng2-translate!",
-    "SELECT": "Change language"
+  "todo": {
+    "firstLine": "<p> I'm <b>Afsin Kapusuzoglu</b>, a software engineer. </p>",
+    "secondLine": "<br/>",
+    "hello": "hello!"
   }
 }

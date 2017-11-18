@@ -11,6 +11,10 @@ import {
   FormControl
 } from "@angular/forms";
 
+import { TranslateService } from '@ngx-translate/core';
+
+var _translate;
+
 @Component({
   selector: "navbar-cmp",
   templateUrl: "navbar/templates/navbar.html",
@@ -18,7 +22,15 @@ import {
 })
 export class NavbarCmp {
 
+  constructor(private translate: TranslateService) {
+    _translate = translate;
+  }
+
+  setlang(e: string): void {
+    _translate.use(e);
+  }
+
 }
-$(document).on('click','.navbar-collapse.show',function(e) {
+$(document).on('click', '.navbar-collapse.show', function(e) {
   $(this).collapse('hide');
 });

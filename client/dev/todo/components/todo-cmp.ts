@@ -13,7 +13,7 @@ import {
   TodoService
 } from "../services/todo-service";
 
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 type Todo = {
   todoMessage: string;
@@ -35,14 +35,11 @@ export class TodoCmp implements OnInit {
       "todoMessage": ""
     };
 
-    translate.addLangs(["en", "fr"]);
-    translate.setDefaultLang('en');
-
-    let browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+    translate.addLangs(["en", "tr"]);
+    translate.setDefaultLang('tr');
+    // let browserLang = translate.getBrowserLang();
+    // translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
   }
-
-
 
   ngOnInit() {
 
@@ -50,19 +47,19 @@ export class TodoCmp implements OnInit {
 
   private _getAll(): void {
     this._todoService
-        .getAll()
-        .subscribe((todos) => {
-          this.todos = todos;
-        });
+      .getAll()
+      .subscribe((todos) => {
+        this.todos = todos;
+      });
   }
 
   add(message: string): void {
     this._todoService
-        .add(message)
-        .subscribe((m) => {
-          this.todos.push(m);
-          this.todoForm.todoMessage = "";
-        });
+      .add(message)
+      .subscribe((m) => {
+        this.todos.push(m);
+        this.todoForm.todoMessage = "";
+      });
   }
 
   remove(id: string): void {

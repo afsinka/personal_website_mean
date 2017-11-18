@@ -21,10 +21,10 @@ var TodoCmp = /** @class */ (function () {
         this.todoForm = {
             "todoMessage": ""
         };
-        translate.addLangs(["en", "fr"]);
-        translate.setDefaultLang('en');
-        var browserLang = translate.getBrowserLang();
-        translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+        translate.addLangs(["en", "tr"]);
+        translate.setDefaultLang('tr');
+        // let browserLang = translate.getBrowserLang();
+        // translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
     }
     TodoCmp.prototype.ngOnInit = function () {
     };
