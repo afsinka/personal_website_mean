@@ -13,6 +13,8 @@ import {
   TodoService
 } from "../services/todo-service";
 
+import {TranslateService} from '@ngx-translate/core';
+
 type Todo = {
   todoMessage: string;
   _id?: string;
@@ -28,14 +30,22 @@ export class TodoCmp implements OnInit {
   todos: Todo[] = [];
   todoForm: Todo;
 
-  constructor(private _todoService: TodoService) {
+  constructor(private _todoService: TodoService, private translate: TranslateService) {
     this.todoForm = {
       "todoMessage": ""
     };
+
+    translate.addLangs(["en", "fr"]);
+    translate.setDefaultLang('en');
+
+    let browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
   }
 
+
+
   ngOnInit() {
-    
+
   }
 
   private _getAll(): void {

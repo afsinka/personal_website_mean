@@ -19,6 +19,9 @@ System.config({
     '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
     '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 		'angular2-recaptcha': 'node_modules/angular2-recaptcha',
+		'@ngx-translate/core': 'node_modules/@ngx-translate/core/bundles/core.umd.js',
+    '@ngx-translate/http-loader': 'node_modules/@ngx-translate/http-loader/bundles/http-loader.umd.js',
+
 
     // other libraries
     'rxjs':                       'npm:rxjs'
@@ -28,6 +31,8 @@ System.config({
             format: 'register',
             defaultExtension: 'js'
         },
-        'angular2-recaptcha': {defaultExtension: 'js', main:'index'}
+        'angular2-recaptcha': {defaultExtension: 'js', main:'index'},
+				'@ngx-translate/core' : { defaultExtension: 'js' },
+				'@ngx-translate/http-loader' : { defaultExtension: 'js' }
     }
 });

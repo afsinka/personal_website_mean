@@ -23,6 +23,12 @@ var contact_service_1 = require("./contact/services/contact-service");
 var notfound_cmp_1 = require("./notfound/components/notfound-cmp");
 var notfound_route_1 = require("./notfound/components/notfound-route");
 var angular2_recaptcha_1 = require("angular2-recaptcha");
+var core_2 = require("@ngx-translate/core");
+var http_loader_1 = require("@ngx-translate/http-loader");
+function HttpLoaderFactory(httpClient) {
+    return new http_loader_1.TranslateHttpLoader(httpClient, "i18n/", ".json");
+}
+exports.HttpLoaderFactory = HttpLoaderFactory;
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -37,6 +43,13 @@ var AppModule = /** @class */ (function () {
                 contact_route_1.contactRouting,
                 notfound_route_1.notfoundRouting,
                 angular2_recaptcha_1.ReCaptchaModule,
+                core_2.TranslateModule.forRoot({
+                    loader: {
+                        provide: core_2.TranslateLoader,
+                        useFactory: HttpLoaderFactory,
+                        deps: [http_1.Http]
+                    }
+                })
             ],
             declarations: [
                 app_1.App,
