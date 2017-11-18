@@ -1,5 +1,5 @@
 System.config({
-	defaultJSExtensions: true,
+  defaultJSExtensions: true,
   paths: {
     // paths serve as alias
     'npm:': './'
@@ -18,21 +18,27 @@ System.config({
     '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
     '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
     '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-		'angular2-recaptcha': 'node_modules/angular2-recaptcha',
-		'@ngx-translate/core': 'node_modules/@ngx-translate/core/bundles/core.umd.js',
+    'angular2-recaptcha': 'node_modules/angular2-recaptcha',
+    '@ngx-translate/core': 'node_modules/@ngx-translate/core/bundles/core.umd.js',
     '@ngx-translate/http-loader': 'node_modules/@ngx-translate/http-loader/bundles/http-loader.umd.js',
 
-
     // other libraries
-    'rxjs':                       'npm:rxjs'
+    'rxjs': 'npm:rxjs'
   },
-	packages: {
-        app: {
-            format: 'register',
-            defaultExtension: 'js'
-        },
-        'angular2-recaptcha': {defaultExtension: 'js', main:'index'},
-				'@ngx-translate/core' : { defaultExtension: 'js' },
-				'@ngx-translate/http-loader' : { defaultExtension: 'js' }
+  packages: {
+    app: {
+      format: 'register',
+      defaultExtension: 'js'
+    },
+    'angular2-recaptcha': {
+      defaultExtension: 'js',
+      main: 'index'
+    },
+    '@ngx-translate/core': {
+      defaultExtension: 'js'
+    },
+    '@ngx-translate/http-loader': {
+      defaultExtension: 'js'
     }
+  }
 });
