@@ -1,5 +1,5 @@
 <div class="af_container">
-  <h1 class="af_h1_title">contact</h1>
+  <h1 class="af_h1_title">{{'contact.title' | translate}}</h1>
   <hr class="solid_hr">
   <table class="contact_table">
     <tbody>
@@ -16,13 +16,13 @@
     </tbody>
   </table> <br>
 
-  <h1 class="af_h1_title">send anonymous message</h1>
+  <h1 class="af_h1_title">{{'contact.sendMessage' | translate}}</h1>
   <hr class="solid_hr">
   <form class="message-form" (ngSubmit)="onSubmit()">
-    <textarea placeholder="type here..." rows="4" cols="100" (keyup)="count(message)" name="message" [(ngModel)]="message" maxlength="5000"></textarea>
+    <textarea placeholder="{{'contact.typeHere' | translate}}" rows="4" cols="100" (keyup)="count(message)" name="message" [(ngModel)]="message" maxlength="5000"></textarea>
     <br/>
-    <span> chars left : {{ characterleft }}</span>
-    <button style="float:right;margin-right:10%;" type="submit" class="btn btn-success btn-submit">Send</button>
+    <span> {{'contact.charsleft' | translate}} : {{ characterleft }}</span>
+    <button style="float:right;margin-right:10%;" type="submit" class="btn btn-success btn-submit">{{'contact.send' | translate}}</button>
     <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LciXjYUAAAAAI7KLBHYcoVMomyxQi4eRbkHZZy-"></re-captcha>
   </form>
 
@@ -32,10 +32,10 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-body">
-          <p>Your message is received. Thank you!</p>
+          <p>{{'contact.sendPositive' | translate}}</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">{{'contact.close' | translate}}</button>
         </div>
       </div>
     </div>
@@ -47,15 +47,15 @@
       <div class="modal-content">
         <div class="modal-body">
           <div style="text-align:center;">
-            <p>ARE YOU A SIMULATION?!</p>
+            <p>{{'contact.simulation' | translate}}</p>
             <img src="images/areyouasimulation.jpg" width="320" height="240" style="">
             <span class="text-content"></span>
             <br/>
-            <p>If you are not, please check the box at the bottom left and try again, thank you!</p>
+            <p>{{'contact.simulationWarning' | translate}}</p>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">{{'contact.close' | translate}}</button>
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <div style="text-align:center;">
-            <p>Come on, don't be shy, write something!</p>
+            <p>{{'contact.shy' | translate}}</p>
           </div>
         </div>
         <div class="modal-footer">

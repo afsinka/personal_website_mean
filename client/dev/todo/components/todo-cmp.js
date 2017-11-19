@@ -11,20 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var todo_service_1 = require("../services/todo-service");
-var core_2 = require("@ngx-translate/core");
 var TodoCmp = /** @class */ (function () {
-    function TodoCmp(_todoService, translate) {
+    function TodoCmp(_todoService) {
         this._todoService = _todoService;
-        this.translate = translate;
         this.title = "hello!";
         this.todos = [];
         this.todoForm = {
             "todoMessage": ""
         };
-        translate.addLangs(["en", "tr"]);
-        translate.setDefaultLang('tr');
-        // let browserLang = translate.getBrowserLang();
-        // translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
     }
     TodoCmp.prototype.ngOnInit = function () {
     };
@@ -62,7 +56,7 @@ var TodoCmp = /** @class */ (function () {
             templateUrl: "todo/templates/todo.html",
             styleUrls: ["todo/styles/todo.css"]
         }),
-        __metadata("design:paramtypes", [todo_service_1.TodoService, core_2.TranslateService])
+        __metadata("design:paramtypes", [todo_service_1.TodoService])
     ], TodoCmp);
     return TodoCmp;
 }());

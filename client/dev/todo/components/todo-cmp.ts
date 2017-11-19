@@ -30,15 +30,10 @@ export class TodoCmp implements OnInit {
   todos: Todo[] = [];
   todoForm: Todo;
 
-  constructor(private _todoService: TodoService, private translate: TranslateService) {
+  constructor(private _todoService: TodoService) {
     this.todoForm = {
       "todoMessage": ""
     };
-
-    translate.addLangs(["en", "tr"]);
-    translate.setDefaultLang('tr');
-    // let browserLang = translate.getBrowserLang();
-    // translate.use(browserLang.match(/en|tr/) ? browserLang : 'en');
   }
 
   ngOnInit() {

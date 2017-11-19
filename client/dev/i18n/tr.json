@@ -3,5 +3,25 @@
     "firstLine": "<p> Ben <b>Afşin Kapusuzoğlu</b>, yazılım mühendisiyim. </p>",
     "secondLine": "<br/>",
     "hello": "merhaba!"
+  },
+  "about": {
+    "title":"hakkımda"
+  },
+  "navbar": {
+    "home": "Giriş",
+    "about": "Hakkımda",
+    "contact": "İletişim"
+  },
+  "contact": {
+    "title": "iletişim",
+    "sendMessage": "gizli mesaj yolla",
+    "send": "Gönder",
+    "sendPositive": "Mesajınız başarıyla gönderildi. Teşekkürler!",
+    "close": "Kapat",
+    "simulation": "SEN SİMULASYON MUSUN?",
+    "simulationWarning": "Eğer değilseniz, lütfen sol alttaki kutucuğu işaretleyip tekrar deneyin, teşekkürler!",
+    "shy": "Çekinme çekinme, yaz bir şeyler!",
+    "charsleft": "kalan karakter sayısı",
+    "typeHere": "buraya yazabilirsiniz..."
   }
 }

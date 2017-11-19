@@ -3,5 +3,25 @@
     "firstLine": "<p> I'm <b>Afsin Kapusuzoglu</b>, a software engineer. </p>",
     "secondLine": "<br/>",
     "hello": "hello!"
+  },
+  "about": {
+    "title":"about"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "contact": {
+    "title": "contact",
+    "sendMessage": "send anonymous message",
+    "send": "Send",
+    "sendPositive": "Your message is received. Thank you!",
+    "close": "Close",
+    "simulation": "ARE YOU A SIMULATION?!",
+    "simulationWarning": "If you are not, please check the box at the bottom left and try again, thank you!",
+    "shy": "Come on, don't be shy, write something!",
+    "charsleft": "chars left",
+    "typeHere": "type here..."
   }
 }
