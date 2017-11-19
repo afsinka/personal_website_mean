@@ -15,10 +15,27 @@ var _translate;
 var NavbarCmp = /** @class */ (function () {
     function NavbarCmp(translate) {
         this.translate = translate;
+        this.levelNum = 'tr';
         _translate = translate;
     }
+    NavbarCmp.prototype.ngOnInit = function () {
+        $('#turkish').css('display', 'none');
+        $('#english').css('display', 'none');
+    };
     NavbarCmp.prototype.setlang = function (e) {
         _translate.use(e);
+        if (e == 'tr') {
+            $('#turkish').parent().addClass('active');
+            $('#english').parent().removeClass('active');
+        }
+        else if (e == 'en') {
+            $('#english').parent().addClass('active');
+            $('#turkish').parent().removeClass('active');
+        }
+    };
+    NavbarCmp.prototype.setlang2 = function () {
+        console.log(this.levelNum);
+        _translate.use(this.levelNum);
     };
     NavbarCmp = __decorate([
         core_1.Component({
